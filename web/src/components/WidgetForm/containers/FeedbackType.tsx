@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { CloseButton } from "../../CloseButton";
+import { Header } from "../components";
 import { FeedbackType as Type, FEEDBACK_TYPES } from "../types";
 
 type FeedbackTypeProps = {
@@ -17,10 +17,9 @@ type FeedbackTypeProps = {
 export const FeedbackType = ({ onChange }: FeedbackTypeProps): ReactElement => {
   return (
     <>
-      <header>
+      <Header>
         <span className="text-xl leading-6">Leave your feedback</span>
-        <CloseButton />
-      </header>
+      </Header>
       <div className="flex py-8 gap-2 w-full">
         {Object.entries(FEEDBACK_TYPES).map(([key, value]) => (
           <button

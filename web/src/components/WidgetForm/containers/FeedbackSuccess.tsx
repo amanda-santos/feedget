@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
-import { CloseButton } from "../../CloseButton";
 
+import { Header } from "../components";
 import successImageUrl from "../../../assets/success.svg";
 
 type FeedbackSuccessProps = {
@@ -12,9 +12,7 @@ export const FeedbackSuccess = ({
 }: FeedbackSuccessProps): ReactElement => {
   return (
     <>
-      <header>
-        <CloseButton />
-      </header>
+      <Header />
 
       <div className="flex flex-col items-center py-10 w-[304px]">
         <img src={successImageUrl} alt="Success" />

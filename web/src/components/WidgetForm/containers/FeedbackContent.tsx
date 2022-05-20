@@ -1,10 +1,10 @@
 import { ArrowLeft } from "phosphor-react";
 import { FormEvent, ReactElement, useState } from "react";
 
-import { ScreenshotButton } from "./../components/ScreenshotButton";
-import { CloseButton } from "../../CloseButton";
+import { ScreenshotButton } from "./../components";
 
 import { FeedbackType, FEEDBACK_TYPES } from "../types";
+import { Header } from "../components";
 
 type FeedbackContentProps = {
   type: FeedbackType;
@@ -30,25 +30,26 @@ export const FeedbackContent = ({
 
   return (
     <>
-      <header>
-        <button
-          type="button"
-          onClick={onFeedbackRestart}
-          className="top-5 left-5 absolute text-zinc-400 hover:text-zinc-100"
-        >
-          <ArrowLeft weight="bold" className="w-4 h-4" />
-        </button>
+      <Header>
+        <>
+          <button
+            type="button"
+            onClick={onFeedbackRestart}
+            className="top-5 left-5 absolute text-zinc-400 hover:text-zinc-100"
+          >
+            <ArrowLeft weight="bold" className="w-4 h-4" />
+          </button>
 
-        <span className="text-xl leading-6 flex items-center gap-2">
-          <img
-            src={feedbackTypeInfo.image.source}
-            alt={feedbackTypeInfo.image.alt}
-            className="w-6 h-6"
-          />
-          {feedbackTypeInfo.title}
-        </span>
-        <CloseButton />
-      </header>
+          <span className="text-xl leading-6 flex items-center gap-2">
+            <img
+              src={feedbackTypeInfo.image.source}
+              alt={feedbackTypeInfo.image.alt}
+              className="w-6 h-6"
+            />
+            {feedbackTypeInfo.title}
+          </span>
+        </>
+      </Header>
 
       <form className="my-4 w-full" onSubmit={handleSubmitFeedback}>
         <textarea
