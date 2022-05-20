@@ -1,7 +1,8 @@
 import { ReactElement, useState } from "react";
-import { CloseButton } from "../CloseButton";
-import { FeedbackContent } from "./components/FeedbackContent";
-import { FeedbackType as FeedbackTypeComponent } from "./components/FeedbackType";
+import {
+  FeedbackContent,
+  FeedbackType as FeedbackTypeComponent,
+} from "./containers";
 import { FeedbackType } from "./types";
 
 export const WidgetForm = (): ReactElement => {
