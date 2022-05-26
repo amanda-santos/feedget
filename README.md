@@ -71,6 +71,7 @@ Running the back-end:
 
 ## 🖥 Preview
 
+https://user-images.githubusercontent.com/49074930/170593636-d29cf4c6-5cb0-408d-9f34-a0cfb5d1bb79.mp4
 
 ## 🤔 How to contribute
 
