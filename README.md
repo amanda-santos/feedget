@@ -64,7 +64,7 @@ Running the front-end web:
 - Run `npm i` to install the dependencies
 - Run `npm run dev` to start the server
 
-Running the back-end web: 
+Running the back-end: 
 - Enter the `server` folder
 - Run `npm i` to install the dependencies
 - Run `npm run dev` to start the server
