@@ -5,6 +5,8 @@ import { ScreenshotButton } from "./../components";
 
 import { FeedbackType, FEEDBACK_TYPES } from "../types";
 import { Header } from "../components";
+import { api } from "../../../lib/api";
+import { Loading } from "../../Loading";
 
 type FeedbackContentProps = {
   type: FeedbackType;
@@ -18,13 +20,23 @@ export const FeedbackContent = ({
   onFeedbackSent,
 }: FeedbackContentProps): ReactElement => {
   const [comment, setComment] = useState("");
-
   const [screenshot, setScreenshot] = useState<null | string>(null);
+  const [isSendingFeedback, setIsSendingFeedback] = useState(false);
+
   const feedbackTypeInfo = FEEDBACK_TYPES[type];
 
-  const handleSubmitFeedback = (event: FormEvent): void => {
+  const handleSubmitFeedback = async (event: FormEvent): Promise<void> => {
     event.preventDefault();
-    console.log(comment, screenshot);
+
+    setIsSendingFeedback(true);
+
+    await api.post("/feedbacks", {
+      type,
+      comment,
+      screenshot,
+    });
+
+    setIsSendingFeedback(false);
     onFeedbackSent();
   };
 
@@ -67,10 +79,10 @@ export const FeedbackContent = ({
 
           <button
             type="submit"
-            disabled={!comment}
+            disabled={!comment || isSendingFeedback}
             className="p-2 bg-brand-500 rounded-md border-transparent flex-1 flex justify-center items-center text-sm hover:bg-brand-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-brand-500"
           >
-            Send feedback
+            {isSendingFeedback ? <Loading /> : "Send feedback"}
           </button>
         </footer>
       </form>
